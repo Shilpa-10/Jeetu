@@ -6,4 +6,6 @@ import com.abc.student.dal.entities.Student;
  
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
+	 
+
 }

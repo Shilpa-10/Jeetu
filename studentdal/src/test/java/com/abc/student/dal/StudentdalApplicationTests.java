@@ -17,7 +17,8 @@ public class StudentdalApplicationTests {
 	
 	@Autowired
 	private StudentRepository studentRepository;
-	 @Test
+	 @Test                          
+	 //to create: hibernate will use insert query in console
 	 public void testCreateStudent(){
 		 Student student=new Student();
 		 student.setName("Jerry");
@@ -26,6 +27,32 @@ public class StudentdalApplicationTests {
 
 		 studentRepository.save(student);
 		 
+		 
 	 }
+	 
+	 //to read: hibernate will use select query in console
+	 
+	 @Test
+	 
+	 public void testFindStudentById() {
+		 Student student= studentRepository.findById(1l).get();
+		 System.out.println(student);
+	 }
+	 
+	 
+	 //to update:
+	 @Test
+	 public void testUpdateStudent()
+	 {
+		 
+		 Student student =studentRepository.findById(1l).get();
+		 student.setFee(60d);
+		 studentRepository.save(student);
+	 }
+	 	 
+	/*
+	 * @Test public void testDeleteStudent() { Student student=new Student();
+	 * student.setId(1l); studentRepository.delete(student); }
+	 */
 
 }
